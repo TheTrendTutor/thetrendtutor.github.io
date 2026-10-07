@@ -2,15 +2,206 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TheTrendTutor</title>
-<style>body{font-family:Arial,sans-serif;max-width:720px;margin:40px auto;padding:0 20px;line-height:1.6;color:#222}</style>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TheTrendTutor | Learn to read the chart</title>
+<meta name="description" content="Free, open-source TradingView indicators that explain the chart in plain words, in 11 languages.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F7FA;
+  --grid:#E2E7EE;
+  --ink:#18222F;
+  --muted:#5A6676;
+  --up:#1E9E6A;
+  --down:#D8443F;
+  --wait:#E6B526;
+  --line:#CBD3DD;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  font-stretch:100%;
+  color:var(--ink);
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:48px 48px;
+  line-height:1.55;
+  padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0);
+}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--wait);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+/* Hero */
+.hero{padding:72px 0 56px}
+.logo{display:block;width:min(360px,80vw);height:auto;margin:0 0 36px -6px}
+.candle-body,.wick{transform-box:fill-box;transform-origin:bottom}
+.rise{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.rise.d2{animation-delay:.25s}
+.rise.d3{animation-delay:.5s}
+@keyframes rise{from{transform:scaleY(.15);opacity:.3}to{transform:scaleY(1);opacity:1}}
+@media (prefers-reduced-motion:reduce){.rise{animation:none}}
+.brand{font-stretch:125%;font-weight:800;font-size:clamp(1.1rem,2.2vw,1.35rem);letter-spacing:.01em;margin:0 0 14px}
+h1{font-stretch:112%;font-weight:750;font-size:clamp(2.1rem,5.6vw,3.6rem);line-height:1.06;margin:0 0 20px;max-width:16ch}
+.lead{font-size:clamp(1.05rem,1.8vw,1.25rem);color:var(--muted);max-width:56ch;margin:0 0 30px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;text-decoration:none;font-weight:650;padding:13px 20px;border:2px solid var(--ink);border-radius:6px;background:var(--ink);color:#fff}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn:hover{background:var(--up);border-color:var(--up);color:#fff}
+
+/* Sections */
+section{padding:44px 0}
+h2{font-stretch:112%;font-weight:750;font-size:clamp(1.5rem,3vw,2rem);margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 24px;max-width:60ch}
+
+/* Indicator watchlist */
+.list{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.row{display:grid;grid-template-columns:14px 230px 1fr auto;gap:18px;align-items:center;padding:18px 22px;border-top:1px solid var(--grid)}
+.row:first-child{border-top:0}
+.tick{width:10px;height:26px;border-radius:2px;background:var(--up);position:relative}
+.tick::before{content:"";position:absolute;left:4px;top:-6px;width:2px;height:38px;background:inherit}
+.row:nth-child(even) .tick{background:var(--down)}
+.name{font-weight:700;font-stretch:106%}
+.desc{color:var(--muted);font-size:.97rem}
+.open{font-weight:650;text-decoration:none;white-space:nowrap;border-bottom:2px solid var(--wait);padding-bottom:1px}
+.open:hover{color:var(--up);border-color:var(--up)}
+
+/* More from */
+.more{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:10px;background:#fff;overflow:hidden}
+.item{padding:22px;border-left:1px solid var(--grid)}
+.item:first-child{border-left:0}
+.item h3{margin:0 0 6px;font-size:1.1rem;font-stretch:106%}
+.item p{margin:0 0 12px;color:var(--muted);font-size:.97rem}
+.soon{display:inline-block;font-size:.85rem;font-weight:650;color:#7A5B00;background:#FBF0CC;border-radius:4px;padding:3px 8px}
+
+/* Footer */
+footer{padding:40px 0 56px;color:var(--muted);font-size:.92rem}
+footer p{margin:0 0 8px;max-width:72ch}
+.note{font-weight:650;color:var(--ink)}
+
+@media (max-width:760px){
+  .hero{padding:48px 0 36px}
+  .row{grid-template-columns:14px 1fr;gap:6px 14px;padding:16px 18px}
+  .row .tick{grid-row:span 3;align-self:start;margin-top:6px}
+  .more{grid-template-columns:1fr}
+  .item{border-left:0;border-top:1px solid var(--grid)}
+  .item:first-child{border-top:0}
+}
+</style>
 </head>
 <body>
-<h1>TheTrendTutor</h1>
-<p>Educational trading tools and chart reading resources.</p>
-<p>gridbot-drive is a private tool used only by its owner to store reports and task files in his own Google Drive folder.</p>
-<p><a href="privacy.html">Privacy Policy</a></p>
-<p>Contact: mahmutcandan34@gmail.com</p>
+<div class="wrap">
+
+<header class="hero">
+  <svg class="logo" viewBox="0 0 360 170" role="img" aria-label="TheTrendTutor 101 logo">
+    <!-- green candle "1" -->
+    <g class="rise">
+      <rect class="wick" x="57" y="8" width="6" height="154" rx="3" fill="#1E9E6A"/>
+      <rect class="candle-body" x="34" y="30" width="52" height="112" rx="6" fill="#1E9E6A"/>
+    </g>
+    <!-- yellow "0" -->
+    <g class="rise d2">
+      <rect x="132" y="30" width="96" height="112" rx="48" fill="none" stroke="#E6B526" stroke-width="22"/>
+    </g>
+    <!-- red candle "1" -->
+    <g class="rise d3">
+      <rect class="wick" x="297" y="8" width="6" height="154" rx="3" fill="#D8443F"/>
+      <rect class="candle-body" x="274" y="30" width="52" height="112" rx="6" fill="#D8443F"/>
+    </g>
+  </svg>
+  <p class="brand">TheTrendTutor</p>
+  <h1>Learn to read the chart, one candle at a time.</h1>
+  <p class="lead">Free, open-source TradingView indicators that explain what the chart is showing in plain words. Every tool speaks 11 languages.</p>
+  <div class="actions">
+    <a class="btn" href="https://www.tradingview.com/u/TheTrendTutor/#published-scripts">See all indicators on TradingView</a>
+    <a class="btn ghost" href="https://x.com/TheTrendTutor">Follow on X</a>
+  </div>
+</header>
+
+<section id="indicators" aria-labelledby="ind-title">
+  <h2 id="ind-title">Indicators</h2>
+  <p class="sub">Add any of them to your chart for free. Each one teaches while it works.</p>
+  <div class="list">
+    <div class="row">
+      <span class="tick" aria-hidden="true"></span>
+      <span class="name">Chart Reading Coach</span>
+      <span class="desc">Explains candles, trend and key areas on your chart in simple notes.</span>
+      <a class="open" href="https://www.tradingview.com/u/TheTrendTutor/#published-scripts">Open on TradingView</a>
+    </div>
+    <div class="row">
+      <span class="tick" aria-hidden="true"></span>
+      <span class="name">Market Structure Coach</span>
+      <span class="desc">Marks higher highs, lower lows, break of structure and change of character.</span>
+      <a class="open" href="https://www.tradingview.com/u/TheTrendTutor/#published-scripts">Open on TradingView</a>
+    </div>
+    <div class="row">
+      <span class="tick" aria-hidden="true"></span>
+      <span class="name">Risk and Position Size Coach</span>
+      <span class="desc">Plans your position size, stop and reward-to-risk before you enter.</span>
+      <a class="open" href="https://www.tradingview.com/script/9Za1phUL/">Open on TradingView</a>
+    </div>
+    <div class="row">
+      <span class="tick" aria-hidden="true"></span>
+      <span class="name">Smart Signal Coach</span>
+      <span class="desc">Combines SuperTrend, EMA, RSI, MACD, volume and VWAP into one clear readout, with alerts.</span>
+      <a class="open" href="https://www.tradingview.com/script/PGY8543O/">Open on TradingView</a>
+    </div>
+    <div class="row">
+      <span class="tick" aria-hidden="true"></span>
+      <span class="name">Whale Zones Coach</span>
+      <span class="desc">Highlights where large orders and big trades hit the market.</span>
+      <a class="open" href="https://www.tradingview.com/script/XTUiyHF6/">Open on TradingView</a>
+    </div>
+    <div class="row">
+      <span class="tick" aria-hidden="true"></span>
+      <span class="name">Key Levels and Sessions Coach</span>
+      <span class="desc">Shows previous day, week and month highs and lows, plus trading session boxes.</span>
+      <a class="open" href="https://www.tradingview.com/script/1SpAIzYf/">Open on TradingView</a>
+    </div>
+    <div class="row">
+      <span class="tick" aria-hidden="true"></span>
+      <span class="name">Liquidation Heatmap Coach</span>
+      <span class="desc">Maps the price areas where leveraged positions are likely to be liquidated.</span>
+      <a class="open" href="https://www.tradingview.com/script/374DfsaB/">Open on TradingView</a>
+    </div>
+  </div>
+</section>
+
+<section id="more" aria-labelledby="more-title">
+  <h2 id="more-title">More from TheTrendTutor</h2>
+  <p class="sub">Short lessons, daily market notes and books for beginners.</p>
+  <div class="more">
+    <div class="item">
+      <h3>X</h3>
+      <p>Daily crypto and market updates, plus every new indicator first.</p>
+      <a class="open" href="https://x.com/TheTrendTutor">@TheTrendTutor</a>
+    </div>
+    <div class="item">
+      <h3>YouTube</h3>
+      <p>Short chart lessons you can follow on screen, no sound needed.</p>
+      <span class="soon">Coming soon</span>
+    </div>
+    <div class="item">
+      <h3>Books on Amazon</h3>
+      <p>Chart Reading 101 and the TheTrendTutor Trade Journal.</p>
+      <span class="soon">Coming soon</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="note">Educational content only, not financial advice. Trading involves risk.</p>
+  <p>gridbot-drive, a private tool operated by TheTrendTutor, follows our <a href="privacy.html">Privacy Policy</a>.</p>
+  <p>Contact: <a href="mailto:mahmutcandan34@gmail.com">mahmutcandan34@gmail.com</a></p>
+  <p>&copy; 2026 TheTrendTutor</p>
+</footer>
+
+</div>
 </body>
 </html>
