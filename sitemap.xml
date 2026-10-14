@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://thetrendtutor.github.io/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://thetrendtutor.github.io/abluka/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thetrendtutor.github.io/abluka/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://thetrendtutor.github.io/abluka/tr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thetrendtutor.github.io/abluka/"/>
+  </url>
+  <url>
+    <loc>https://thetrendtutor.github.io/abluka/tr/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thetrendtutor.github.io/abluka/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://thetrendtutor.github.io/abluka/tr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thetrendtutor.github.io/abluka/"/>
+  </url>
+  <url>
+    <loc>https://thetrendtutor.github.io/abluka/support.html</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://thetrendtutor.github.io/abluka/privacy.html</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://thetrendtutor.github.io/privacy.html</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+</urlset>
